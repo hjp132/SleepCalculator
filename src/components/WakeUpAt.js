@@ -3,6 +3,9 @@ import { Text, StyleSheet, View, Button, TouchableOpacity, Picker } from "react-
 
 const WakeUpAt = () => {
     const [selectedValue, setSelectedValue] = useState("java");
+    let hour;
+    let minute;
+    let timeprefix;
     return (
             <View>
                 <View>
@@ -11,9 +14,10 @@ const WakeUpAt = () => {
                 
             <View style={styles.pickerContainer}>
                 <Picker 
+                    id="hour"
                     selectedValue={selectedValue}
                     style={{ height: 50, width: 150, color: '#7FDBFF'}}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)    }>
                     <Picker.Item label="(hour)" value="0" />
                     <Picker.Item label="1" value="1" />
                     <Picker.Item label="2" value="2" />
@@ -49,6 +53,7 @@ const WakeUpAt = () => {
                 </Picker>
 
                 <Picker
+                    id="amorpm"
                     selectedValue={selectedValue}
                     style={{ height: 50, width: 100, color: '#7FDBFF' }}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
@@ -58,7 +63,8 @@ const WakeUpAt = () => {
             </View>
 
             <View>
-                <TouchableOpacity>
+                <TouchableOpacity 
+                onPress={ () => console.log(hour + ":" + minute + timeprefix)}>
                     <Text style={styles.calculate}>Calculate</Text>
                 </TouchableOpacity>
             </View>
@@ -85,4 +91,15 @@ const styles = StyleSheet.create({
     }
       
 });
+
+function Testfunc (time, value, index) {
+    (itemValue, itemIndex) => setSelectedValue(itemValue)
+    GettingTheValue(time, value)
+
+    
+}
+function GettingTheValue (time, value) {
+    time = value;
+    return console.log(time)
+}
 export default WakeUpAt

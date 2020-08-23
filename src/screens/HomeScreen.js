@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View, Button, TouchableOpacity, ImagePropTypes } from "react-native";
 import WakeUpAt from '../components/WakeUpAt'
 
-const HomeScreen = ({ navigation })=> {
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>sleepyti.me</Text>
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#001f3f',
     color: '#7FDBFF',
+    height: 1000
     
   },
   title: {
