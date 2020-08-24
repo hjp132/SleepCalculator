@@ -17,7 +17,9 @@ const WakeUpAt = () => {
                     id="hour"
                     selectedValue={selectedValue}
                     style={{ height: 50, width: 150, color: '#7FDBFF'}}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)    }>
+                    // onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)    }
+                    onValueChange={(itemValue, itemIndex) => Testfunc(hour, itemValue, itemIndex, setSelectedValue)    }
+                    >
                     <Picker.Item label="(hour)" value="0" />
                     <Picker.Item label="1" value="1" />
                     <Picker.Item label="2" value="2" />
@@ -36,7 +38,7 @@ const WakeUpAt = () => {
                 <Picker
                     selectedValue={selectedValue}
                     style={{ height: 50, width: 150, color: '#7FDBFF', flexDirection: "row", display: "flex" }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+                    onValueChange={(itemValue, itemIndex) => Testfunc(minute, itemValue, itemIndex, setSelectedValue)    }>
                     <Picker.Item label="(minute)" value="0" />
                     <Picker.Item label="00" value="00" />
                     <Picker.Item label="05" value="05" />
@@ -56,7 +58,7 @@ const WakeUpAt = () => {
                     id="amorpm"
                     selectedValue={selectedValue}
                     style={{ height: 50, width: 100, color: '#7FDBFF' }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+                    onValueChange={(itemValue, itemIndex) => Testfunc(timeprefix, itemValue, itemIndex, setSelectedValue)    }>
                     <Picker.Item label="AM" value="AM" />
                     <Picker.Item label="PM" value="PM" />
                 </Picker>
@@ -92,8 +94,8 @@ const styles = StyleSheet.create({
       
 });
 
-function Testfunc (time, value, index) {
-    (itemValue, itemIndex) => setSelectedValue(itemValue)
+function Testfunc (time, value, index, setSelectedValue) {
+    setSelectedValue(value)
     GettingTheValue(time, value)
 
     
